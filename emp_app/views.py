@@ -64,7 +64,11 @@ def filter_emp(request):
             emps = emps.filter(Q(first_name__icontains = name) | Q(last_name__icontains = name))   # i for case sensitive
         if role:
             emps = emps.filter(role__name__icontains = role)
+
         if dept:
+            emps = emps.filter(dept__name__icontains = dept)
+                   
+                
 
         context = {
             "emps" : emps
